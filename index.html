@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="LinkRun Updates">
+    <meta property="og:description" content="Latest updates and changes for LinkRun">
+    <meta property="og:image" content="https://mcboss.top/T.jpg">
+    <link rel="icon" href="https://mcboss.top/T.jpg" type="image/jpeg">
+    <title>LinkRun Updates</title>
+    <style>
+        :root {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #252525;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --accent: #ff4444;
+            --hover: #ff6666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--bg-secondary);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            color: var(--accent);
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .update-card {
+            background-color: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .update-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .update-date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .update-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .update-preview {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            color: var(--hover);
+        }
+
+        footer {
+            background-color: var(--bg-secondary);
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .update-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">LinkRun Updates</a>
+    </header>
+
+    <main>
+        <div class="update-card" onclick="window.location.href='v2.0.1'">
+            <div class="update-date">Tuesday, Dec 31 at 3:19 AM v2.0.1</div>
+            <h2 class="update-title">🔒 Enhanced Login Security & Navigation</h2>
+            <p class="update-preview">
+                Improved security measures and smarter navigation including better OTP management, login tracking, and navigation flow...
+            </p>
+            <a href="v2.0.1" class="read-more">Read More →</a>
+        </div>
+
+        <div class="update-card" onclick="window.location.href='v2.0.0'">
+            <div class="update-date">Monday, Dec 30 at 8:20 PM v2.0.0</div>
+            <h2 class="update-title">🚀 Account Management Released</h2>
+            <p class="update-preview">
+                Introducing a dedicated Account Management page with features for password management, email updates, and account control...
+            </p>
+            <a href="v2.0.0" class="read-more">Read More →</a>
+        </div>
+
+        <div class="update-card" onclick="window.location.href='v1.2.0'">
+            <div class="update-date">Monday, Dec 30 at 3:25 PM v1.2.0</div>
+            <h2 class="update-title">📜 New Legal Framework</h2>
+            <p class="update-preview">
+                Comprehensive legal documentation including Rules and Regulations, Terms of Service, and Privacy Policy...
+            </p>
+            <a href="v1.2.0" class="read-more">Read More →</a>
+        </div>
+
+        <div class="update-card" onclick="window.location.href='v1.1.0'">
+            <div class="update-date">Monday, Dec 30 at 2:00 PM v1.1.0</div>
+            <h2 class="update-title">🚀 Enhanced Login Experience</h2>
+            <p class="update-preview">
+                Improved login system with smart OTP verification and streamlined authentication process...
+            </p>
+            <a href="v1.1.0" class="read-more">Read More →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 LinkRun Updates. All rights reserved.</p>
+    </footer>
+</body>
+</html>
