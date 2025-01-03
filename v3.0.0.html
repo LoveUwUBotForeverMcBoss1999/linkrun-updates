@@ -10,7 +10,7 @@
     <link rel="icon" href="https://mcboss.top/T.jpg" type="image/jpeg">
     <title>Mobile Navigation Update - LinkRun Updates</title>
     <style>
-        /* [Previous styles remain the same - root variables through footer] */
+        /* Same styles as your template */
         :root {
             --bg-primary: #1a1a1a;
             --bg-secondary: #252525;
@@ -21,7 +21,133 @@
             --feature-bg: #333333;
         }
 
-        /* [Rest of your existing styles] */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--bg-secondary);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            color: var(--accent);
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            padding-bottom: 4rem;
+        }
+
+        .update-container {
+            background-color: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 2rem;
+        }
+
+        .update-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--feature-bg);
+        }
+
+        .update-date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .update-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-box {
+            background-color: var(--feature-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            min-width: 2rem;
+        }
+
+        .feature-text {
+            color: var(--text-secondary);
+        }
+
+        .section {
+            margin: 2.5rem 0;
+        }
+
+        .section-title {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title span {
+            margin-right: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: var(--hover);
+        }
+
+        footer {
+            background-color: var(--bg-secondary);
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .update-title {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 <body>
