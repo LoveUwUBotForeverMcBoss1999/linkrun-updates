@@ -14,6 +14,7 @@
             --bg-secondary: #252525;
             --text-primary: #ffffff;
             --text-secondary: #cccccc;
+            --text-comment: #6a737d;
             --accent: #ff4444;
             --hover: #ff6666;
             --feature-bg: #333333;
@@ -155,6 +156,10 @@
             font-family: monospace;
             overflow-x: auto;
             white-space: pre;
+        }
+
+        .comment {
+            color: var(--text-comment);
         }
 
         .response-example {
@@ -502,8 +507,27 @@
                     </div>
                     <div class="code-block">
 {
-    "token": "your_new_api_token"
-}</div>
+    "message": "Token created successfully",
+    "token": "your_api_token"
+}
+                    </div>
+                    
+                    
+                    <div class="code-block">
+<span class="comment"># Python example using requests library</span>
+import requests
+token = "your_api_token"
+url = f"https://linkrun.xyz/api/token/{token}/create-token"
+                        
+response = requests.post(url)
+data = response.json()
+                    </div>
+
+
+                    <div class="code-block">
+<span class="comment"># Using cURL</span>
+curl -X POST https://linkrun.xyz/api/token/your_api_token/create-token
+                    </div>
                 </div>
             </div>
         </section>
