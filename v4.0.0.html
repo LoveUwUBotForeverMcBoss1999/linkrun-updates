@@ -280,11 +280,7 @@
                         <div class="feature-text">
                             Python Example:
                             <div class="code-block">
-                            import requests
-
-                            token = "your_api_token"
-                            response = requests.get(f"https://linkrun.xyz/api/token/{token}/links")
-                            links = response.json()
+python3 -c "import requests; token='your_api_token'; url=f'https://linkrun.xyz/api/token/{token}/create-token'; response=requests.post(url); print(response.json())"
                             </div>
                         </div>
                     </div>
@@ -293,10 +289,7 @@
                         <div class="feature-text">
                             JavaScript Example:
                             <div class="code-block">
-                            const token = "your_api_token";
-                            fetch(`https://linkrun.xyz/api/token/${token}/links`)
-                              .then(response => response.json())
-                              .then(links => console.log(links));
+node -e "const https = require('https'); const token = 'your_api_token'; const url = `https://linkrun.xyz/api/token/${token}/create-token`; https.request(url, { method: 'POST' }, res => { let data = ''; res.on('data', chunk => data += chunk); res.on('end', () => console.log(JSON.parse(data))); }).on('error', console.error).end();"
                             </div>
                         </div>
                     </div>
