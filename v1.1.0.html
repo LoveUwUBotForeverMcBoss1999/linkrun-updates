@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Enhanced Login Experience - LinkRun Updates">
-    <meta property="og:description" content="We've improved the login system to make it more convenient while maintaining security!">
+    <meta property="og:title" content="LinkRun Updates">
+    <meta property="og:description" content="Latest updates and changes for LinkRun">
     <meta property="og:image" content="https://mcboss.top/T.jpg">
     <link rel="icon" href="https://mcboss.top/T.jpg" type="image/jpeg">
-    <title>Enhanced Login Experience - LinkRun Updates</title>
+    <title>LinkRun Updates</title>
     <style>
-        /* Same styles as your template */
         :root {
             --bg-primary: #1a1a1a;
             --bg-secondary: #252525;
@@ -17,7 +16,6 @@
             --text-secondary: #cccccc;
             --accent: #ff4444;
             --hover: #ff6666;
-            --feature-bg: #333333;
         }
 
         * {
@@ -51,20 +49,19 @@
             max-width: 800px;
             margin: 2rem auto;
             padding: 0 1rem;
-            padding-bottom: 4rem;
         }
 
-        .update-container {
+        .update-card {
             background-color: var(--bg-secondary);
             border-radius: 10px;
-            padding: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        .update-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--feature-bg);
+        .update-card:hover {
+            transform: translateY(-5px);
         }
 
         .update-date {
@@ -74,62 +71,22 @@
         }
 
         .update-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-box {
-            background-color: var(--feature-bg);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .feature-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .feature-icon {
             font-size: 1.5rem;
-            margin-right: 1rem;
-            min-width: 2rem;
+            margin-bottom: 1rem;
         }
 
-        .feature-text {
+        .update-preview {
             color: var(--text-secondary);
-        }
-
-        .section {
-            margin: 2.5rem 0;
-        }
-
-        .section-title {
-            color: var(--accent);
-            font-size: 1.5rem;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
         }
 
-        .section-title span {
-            margin-right: 0.5rem;
-        }
-
-        .back-button {
-            display: inline-block;
+        .read-more {
             color: var(--accent);
             text-decoration: none;
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
+            font-weight: bold;
         }
 
-        .back-button:hover {
+        .read-more:hover {
             color: var(--hover);
         }
 
@@ -144,7 +101,7 @@
 
         @media (max-width: 600px) {
             .update-title {
-                font-size: 1.8rem;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -155,76 +112,59 @@
     </header>
 
     <main>
-        <a href="/" class="back-button">← Back to Updates</a>
+        <div class="update-card" onclick="window.location.href='v4.0.0'">
+            <div class="update-date">Saturday, Jan 4 at 2:00 PM v4.0.0</div>
+            <h2 class="update-title">🚀 API Integration Update</h2>
+            <p class="update-preview">
+                Introducing token-based API authentication, analytics endpoints, and rate limiting for secure and efficient access...
+            </p>
+            <a href="v4.0.0" class="read-more">Read More →</a>
+        </div>
         
-        <div class="update-container">
-            <div class="update-header">
-                <div class="update-date">Monday, Dec 30 at 2:00 PM v1.1.0</div>
-                <h1 class="update-title">🚀 Enhanced Login Experience</h1>
-            </div>
+        <!-- Update Card for v3.0.0 (to be added to the main updates page) -->
+        <div class="update-card" onclick="window.location.href='v3.0.0'">
+            <div class="update-date">Friday, Jan 3 at 12:00 PM v3.0.0</div>
+            <h2 class="update-title">📱 Mobile Navigation Enhancement</h2>
+            <p class="update-preview">
+                Enhanced mobile experience with responsive navigation, hamburger menu, and improved performance for smaller screens...
+            </p>
+            <a href="v3.0.0" class="read-more">Read More →</a>
+        </div>
+        
+        <div class="update-card" onclick="window.location.href='v2.0.1'">
+            <div class="update-date">Tuesday, Dec 31 at 3:19 AM v2.0.1</div>
+            <h2 class="update-title">🔒 Enhanced Login Security & Navigation</h2>
+            <p class="update-preview">
+                Improved security measures and smarter navigation including better OTP management, login tracking, and navigation flow...
+            </p>
+            <a href="v2.0.1" class="read-more">Read More →</a>
+        </div>
 
-            <div class="section">
-                <h2 class="section-title"><span>📢</span> What's New</h2>
-                <div class="feature-box">
-                    <div class="feature-item">
-                        <div class="feature-icon">🔐</div>
-                        <div class="feature-text">Smart OTP System with 24-hour verification period</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">⚡</div>
-                        <div class="feature-text">Streamlined login process for frequent users</div>
-                    </div>
-                </div>
-            </div>
+        <div class="update-card" onclick="window.location.href='v2.0.0'">
+            <div class="update-date">Monday, Dec 30 at 8:20 PM v2.0.0</div>
+            <h2 class="update-title">🚀 Account Management Released</h2>
+            <p class="update-preview">
+                Introducing a dedicated Account Management page with features for password management, email updates, and account control...
+            </p>
+            <a href="v2.0.0" class="read-more">Read More →</a>
+        </div>
 
-            <div class="section">
-                <h2 class="section-title"><span>🛠️</span> How it Works</h2>
-                <div class="feature-box">
-                    <div class="feature-item">
-                        <div class="feature-icon">1️⃣</div>
-                        <div class="feature-text">First login: Enter your credentials + OTP verification</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">2️⃣</div>
-                        <div class="feature-text">Next 24 hours: Quick login with just your credentials</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">3️⃣</div>
-                        <div class="feature-text">After 24 hours: OTP verification required again for security</div>
-                    </div>
-                </div>
-            </div>
+        <div class="update-card" onclick="window.location.href='v1.2.0'">
+            <div class="update-date">Monday, Dec 30 at 3:25 PM v1.2.0</div>
+            <h2 class="update-title">📜 New Legal Framework</h2>
+            <p class="update-preview">
+                Comprehensive legal documentation including Rules and Regulations, Terms of Service, and Privacy Policy...
+            </p>
+            <a href="v1.2.0" class="read-more">Read More →</a>
+        </div>
 
-            <div class="section">
-                <h2 class="section-title"><span>📝</span> Technical Details</h2>
-                <div class="feature-box">
-                    <div class="feature-item">
-                        <div class="feature-icon">🔄</div>
-                        <div class="feature-text">Implemented intelligent login tracking</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🕒</div>
-                        <div class="feature-text">Added secure timestamp verification</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🛡️</div>
-                        <div class="feature-text">Maintained all existing security features</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title"><span>🤔</span> Need Help?</h2>
-                <div class="feature-box">
-                    <div class="feature-item">
-                        <div class="feature-icon">💬</div>
-                        <div class="feature-text">
-                            If you encounter any issues, please contact our support team via Discord (Discord.LinkRun.xyz) 
-                            or email at mcboss120@gmail.com
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="update-card" onclick="window.location.href='v1.1.0'">
+            <div class="update-date">Monday, Dec 30 at 2:00 PM v1.1.0</div>
+            <h2 class="update-title">🚀 Enhanced Login Experience</h2>
+            <p class="update-preview">
+                Improved login system with smart OTP verification and streamlined authentication process...
+            </p>
+            <a href="v1.1.0" class="read-more">Read More →</a>
         </div>
     </main>
 
