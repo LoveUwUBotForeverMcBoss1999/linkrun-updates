@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="LinkRun APIs - Complete Documentation">
+    <meta property="og:description" content="Comprehensive API documentation for LinkRun URL shortener service">
+    <meta property="og:image" content="https://mcboss.top/T.jpg">
+    <link rel="icon" href="https://mcboss.top/T.jpg" type="image/jpeg">
+    <title>LinkRun APIs - Documentation</title>
+    <style>
+        :root {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #252525;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --accent: #ff4444;
+            --hover: #ff6666;
+            --feature-bg: #333333;
+            --code-bg: #1d1d1d;
+            --border-color: #404040;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        .logo-img {
+            height: 30px;
+            width: 30px; /* Ensure the width and height are equal for a perfect circle */
+            object-fit: cover; /* Ensure the image covers the area of the circle */
+            clip-path: circle(50%); /* Apply circular clipping */
+        }
+
+        /* Navigation Styles */
+        .nav-container {
+            background-color: var(--bg-secondary);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 1200px;
+            margin: 80px auto 40px;
+            padding: 0 2rem;
+        }
+
+        .section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: var(--bg-secondary);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .endpoint {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: var(--feature-bg);
+            border-radius: 8px;
+        }
+
+        .endpoint-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .method {
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        .method.get {
+            background-color: #28a745;
+        }
+
+        .endpoint-url {
+            font-family: monospace;
+            color: var(--text-secondary);
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-family: monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .response-example {
+            margin-top: 1rem;
+        }
+
+        .tab-container {
+            margin-top: 1rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tab-button {
+            padding: 0.5rem 1rem;
+            background-color: var(--feature-bg);
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .parameter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .parameter-table th,
+        .parameter-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .parameter-table th {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Version Badge */
+        .version-badge {
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 1rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            main {
+                padding: 0 1rem;
+                margin-top: 60px;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+
+            .endpoint-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .code-block {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .tab-buttons {
+                flex-wrap: wrap;
+            }
+        }
+
+        .footer {
+    background-color: var(--bg-secondary);
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.footer-link {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: var(--hover);
+}
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <a href="/" class="logo">
+                <img src="https://mcboss.top/T.jpg" alt="LinkRun Logo" class="logo-img">
+                LinkRun APIs
+            </a>
+            <div class="nav-links">
+                <a href="#introduction">Introduction</a>
+                <a href="#authentication">Authentication</a>
+                <a href="#endpoints">Endpoints</a>
+                <a href="#rate-limits">Rate Limits</a>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <section id="introduction" class="section">
+            <h1 class="section-title">Introduction <span class="version-badge">v4.0.0</span></h1>
+            <p>Welcome to the LinkRun API documentation. Our API enables you to programmatically access and manage your shortened URLs, track analytics, and integrate LinkRun's functionality into your applications.</p>
+            
+            <div class="endpoint">
+                <h3>Base URL</h3>
+                <div class="code-block">https://linkrun.xyz/api/token/{token}</div>
+            </div>
+        </section>
+
+        <section id="authentication" class="section">
+            <h2 class="section-title">Authentication</h2>
+            <p>All API requests require authentication using an API token. Tokens can be generated from your account dashboard.</p>
+            
+            <div class="endpoint">
+                <h3>Token Format</h3>
+                <p>Include your API token in the URL path for all requests:</p>
+                <div class="code-block">https://linkrun.xyz/api/token/your_api_token/endpoint</div>
+            </div>
+        </section>
+
+        <section id="rate-limits" class="section">
+            <h2 class="section-title">Rate Limits</h2>
+            <p>The API implements rate limiting to ensure fair usage:</p>
+            <ul style="margin-left: 2rem;">
+                <li>100 requests per hour per token</li>
+                <li>Rate limit counters reset every hour</li>
+                <li>Exceeding the limit returns a 429 status code</li>
+            </ul>
+        </section>
+
+        <section id="endpoints" class="section">
+            <h2 class="section-title">API Endpoints</h2>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-url">/links</span>
+                </div>
+                <p>Retrieve all links associated with your account</p>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active">Response</button>
+                    </div>
+                    <div class="code-block">
+{
+    "links": [
+        {
+            "short_code": "abc123",
+            "original_url": "https://example.com",
+            "created_at": "2024-01-04T14:00:00Z",
+            "visits": 42
+        }
+    ]
+}</div>
+                </div>
+            </div>
+            <!-- Previous content remains the same up to the last endpoint -->
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-url">/links/total</span>
+                </div>
+                <p>Get the total number of links for the authenticated user</p>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active">Response</button>
+                    </div>
+                    <div class="code-block">
+{
+    "total_links": 42
+}</div>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-url">/links/latest</span>
+                </div>
+                <p>Retrieve the 10 most recently created links</p>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active">Response</button>
+                    </div>
+                    <div class="code-block">
+{
+    "links": [
+        {
+            "short_code": "abc123",
+            "original_url": "https://example.com",
+            "created_at": "2024-01-04T14:00:00Z",
+            "visits": 42
+        },
+        // ... more links
+    ]
+}</div>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-url">/links/{short_code}</span>
+                </div>
+                <p>Get detailed information about a specific link</p>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active">Response</button>
+                    </div>
+                    <div class="code-block">
+{
+    "short_code": "abc123",
+    "original_url": "https://example.com",
+    "created_at": "2024-01-04T14:00:00Z",
+    "expires_at": "2024-02-04T14:00:00Z",
+    "total_visits": 42,
+    "statistics": {
+        "browsers": [
+            {
+                "name": "Chrome",
+                "count": 25,
+                "percentage": 59.5
+            }
+        ],
+        "platforms": [
+            {
+                "name": "Windows",
+                "count": 20,
+                "percentage": 47.6
+            }
+        ],
+        "devices": [
+            {
+                "name": "Desktop",
+                "count": 35,
+                "percentage": 83.3
+            }
+        ]
+    }
+}</div>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-url">/account</span>
+                </div>
+                <p>Retrieve account information for the authenticated user</p>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active">Response</button>
+                    </div>
+                    <div class="code-block">
+{
+    "email": "user@example.com",
+    "created_at": "2024-01-04T14:00:00Z",
+    "total_links": 42
+}</div>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-url">/links/clicks</span>
+                </div>
+                <p>Get the total number of clicks across all links</p>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active">Response</button>
+                    </div>
+                    <div class="code-block">
+{
+    "total_clicks": 156
+}</div>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-url">/links/{short_code}/clicks</span>
+                </div>
+                <p>Get the number of clicks for a specific link</p>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active">Response</button>
+                    </div>
+                    <div class="code-block">
+{
+    "clicks": 42
+}</div>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method post">POST</span>
+                    <span class="endpoint-url">/create-token</span>
+                </div>
+                <p>Generate a new API token</p>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active">Response</button>
+                    </div>
+                    <div class="code-block">
+{
+    "token": "your_new_api_token"
+}</div>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method delete">DELETE</span>
+                    <span class="endpoint-url">/delete-token/{token}</span>
+                </div>
+                <p>Delete an existing API token</p>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active">Response</button>
+                    </div>
+                    <div class="code-block">
+{
+    "message": "Token deleted successfully"
+}</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="error-responses" class="section">
+            <h2 class="section-title">Error Responses</h2>
+            <div class="endpoint">
+                <h3>Common Error Codes</h3>
+                <table class="parameter-table">
+                    <thead>
+                        <tr>
+                            <th>Status Code</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>401</td>
+                            <td>Invalid or missing API token</td>
+                        </tr>
+                        <tr>
+                            <td>404</td>
+                            <td>Requested resource not found</td>
+                        </tr>
+                        <tr>
+                            <td>429</td>
+                            <td>Rate limit exceeded (100 requests per hour)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 <a href="https://linkrun.xyz" class="footer-link">LinkRun.xyz</a>. All rights reserved.</p>
+        </div>
+    </footer>    
+
+    <script>
+        // Add any JavaScript for interactivity here
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const buttons = button.parentElement.querySelectorAll('.tab-button');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
